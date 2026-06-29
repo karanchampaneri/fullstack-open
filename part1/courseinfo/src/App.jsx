@@ -17,9 +17,7 @@ const App = () => {
 
 const Header = ({course}) =>{
   return (
-    <>
       <h1>{course}</h1>
-    </>
   )
 }
 
