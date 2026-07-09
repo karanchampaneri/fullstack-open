@@ -15,7 +15,7 @@ const StatisticLine = ({ text, value }) => {
 const Statistics = ({ good, neutral, bad }) => {
   const total = good + neutral + bad
   const average = (good * 1 + 0 * neutral + -1 * bad) / total
-  const pct_postive = (good / total) * 100
+  const pct_positive = (good / total) * 100
 
   if (total > 0) {
     return (
@@ -27,7 +27,10 @@ const Statistics = ({ good, neutral, bad }) => {
         <StatisticLine text="bad" value={bad}></StatisticLine>
         <StatisticLine text="all" value={total}></StatisticLine>
         <StatisticLine text="avg" value={average}></StatisticLine>
-        <StatisticLine text="postive" value={pct_postive + '%'}></StatisticLine>
+        <StatisticLine
+          text="positive"
+          value={pct_positive + '%'}
+        ></StatisticLine>
       </div>
     )
   } else {
