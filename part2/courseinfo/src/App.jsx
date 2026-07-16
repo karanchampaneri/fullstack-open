@@ -3,6 +3,7 @@ const Course = ({ course }) => {
     <div>
       <Header course={course}></Header>
       <Content course={course}></Content>
+      <Total course={course}></Total>
     </div>
   );
 };
@@ -26,6 +27,15 @@ const Content = ({ course }) => {
   return renderedParts;
 };
 
+const Total = ({ course }) => {
+  const totalExercises = course.parts.reduce((sum, part) => {
+    // console.log(sum, part.exercises);
+    return sum + part.exercises;
+  }, 0);
+
+  return <h4>total of {totalExercises} exercises</h4>;
+};
+
 const App = () => {
   const course = {
     id: 1,
@@ -45,6 +55,11 @@ const App = () => {
         name: "State of a component",
         exercises: 14,
         id: 3,
+      },
+      {
+        name: "Redux",
+        exercises: 11,
+        id: 4,
       },
     ],
   };
