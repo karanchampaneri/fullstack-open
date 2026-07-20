@@ -29,12 +29,6 @@ const App = (props) => {
   return (
     <div>
       <h1>Notes</h1>
-      {/* <ul>
-        {notes.map((note) => (
-          <Note key={note.id} note={note} />
-        ))}
-      </ul> */}
-
       <div>
         <button onClick={() => setShowAll(!showAll)}>
           show {showAll ? "important" : "all"}
@@ -54,5 +48,4 @@ const App = (props) => {
     </div>
   );
 };
-
 export default App;
