@@ -10,8 +10,22 @@ const App = () => {
       //create new person object
       name: newName,
     };
+
+    // call function to check if personObject Exists in list.
+    if (checkDuplicates(personObject)) {
+      alert(`${newName} is already added to phonebook`);
+      setNewName("");
+      return; // Don't add it
+    }
     setPersons(persons.concat(personObject)); //add to list
     setNewName(""); //reset input field
+  };
+
+  const checkDuplicates = (newPerson) => {
+    return persons.some((person) => person.name === newPerson.name);
+    //  The some() method of Array instances returns true if it finds
+    //  an element in the array that satisfies the provided
+    //  testing function. Otherwise, it returns false.
   };
 
   const handleNameChange = (event) => {
@@ -33,7 +47,7 @@ const App = () => {
       <h2>Numbers</h2>
       <div>
         {persons.map((person) => (
-          <div key={person.name}>{person.name}</div>
+          <div key={persons.indexOf(person)}>{person.name}</div>
         ))}
       </div>
     </div>
